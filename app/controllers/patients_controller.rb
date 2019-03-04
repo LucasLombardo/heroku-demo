@@ -36,6 +36,13 @@ class PatientsController < ApplicationController
     end
   end
 
+  # DELETE /patients/:id
+  def destroy
+    @patient = Patient.find(params[:id])
+
+    @patient.destroy
+  end
+
   # permitted parameters
   def patient_params
     params.require(:patient).permit(:first_name,

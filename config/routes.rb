@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   get '/patients/:id' => 'patients#show'
   post '/patients/' => 'patients#create'
   patch '/patients/:id' => 'patients#update'
+  delete '/patients/:id' => 'patients#destroy'
 
 end
