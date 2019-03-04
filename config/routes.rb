@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   # Patient resource routes
   get '/patients' => 'patients#index'
+  get '/patients/:id' => 'patients#show'
 
 end
