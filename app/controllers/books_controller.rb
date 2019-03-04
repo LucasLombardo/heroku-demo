@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: %i[show update destroy]
 
   # GET /books
   def index
@@ -9,7 +10,7 @@ class BooksController < ApplicationController
 
   # GET /books/:id
   def show
-    @book = Book.find(params[:id])
+    # @book = Book.find(params[:id])
 
     render json: @book
   end
@@ -27,7 +28,7 @@ class BooksController < ApplicationController
 
   # PATCH /books/:id
   def update
-    @book = Book.find(params[:id])
+    # @book = Book.find(params[:id])
 
     if @book.update(book_params)
       render json: @book
@@ -38,9 +39,14 @@ class BooksController < ApplicationController
 
   # DELETE /books/:id
   def destroy
-    @book = Book.find(params[:id])
+    # @book = Book.find(params[:id])
 
     @book.destroy
+  end
+
+  # set resource
+  def set_book
+    @book = Book.find(params[:id])
   end
 
   # permitted parameters
