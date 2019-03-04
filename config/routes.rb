@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # Book resource routes
   get '/books' => 'books#index'
   get '/books/:id' => 'books#show'
+  post '/books/' => 'books#create'
 
   # Patient resource routes
   get '/patients' => 'patients#index'
