@@ -1,4 +1,5 @@
 class PatientsController < ApplicationController
+  before_action :set_patient, only: %i[show update destroy]
 
   # GET /patients
   def index
@@ -9,7 +10,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/:id
   def show
-    @patient = Patient.find(params[:id])
+    # @patient = Patient.find(params[:id])
 
     render json: @patient
   end
@@ -27,7 +28,7 @@ class PatientsController < ApplicationController
 
   # PATCH /patients/:id
   def update
-    @patient = Patient.find(params[:id])
+    # @patient = Patient.find(params[:id])
 
     if @patient.update(patient_params)
       render json: @patient
@@ -38,9 +39,14 @@ class PatientsController < ApplicationController
 
   # DELETE /patients/:id
   def destroy
-    @patient = Patient.find(params[:id])
+    # @patient = Patient.find(params[:id])
 
     @patient.destroy
+  end
+
+  # set resource
+  def set_patient
+    @patient = Patient.find(params[:id])
   end
 
   # permitted parameters
