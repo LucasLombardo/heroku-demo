@@ -12,4 +12,8 @@ Rails.application.routes.draw do
 
   # Book resource routes
   get '/books' => 'books#index'
+
+  # Patient resource routes
+  get '/patients' => 'patients#index'
+
 end
