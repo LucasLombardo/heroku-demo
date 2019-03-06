@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
+  # meals join table
+  resources :meals, except: %i[new edit]
+
   resources :recipes
   resources :ingredients
   # RESTful routes
   resources :examples, except: %i[new edit]
-
+  
   # Custom routes
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
-
+  
   # Book resource routes
   resources :books, except: %i[new edit]
   # get '/books' => 'books#index'
@@ -19,7 +23,7 @@ Rails.application.routes.draw do
   # post '/books/' => 'books#create'
   # patch '/books/:id' => 'books#update'
   # delete '/books/:id' => 'books#destroy'
-
+  
   # Patient resource routes
   resources :patients, except: %i[new edit]
   # get '/patients' => 'patients#index'
